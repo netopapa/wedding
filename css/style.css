@@ -24,6 +24,16 @@ body {
   background: #fff;
 }
 
+.js-fh5co-nav-toggle {
+  display: none !important;
+}
+
+.coracao {
+  background-image:url(images/lilynho.png);
+  background-position: center;
+  background-size: cover;
+}
+
 #page {
   position: relative;
   overflow-x: hidden;
@@ -231,7 +241,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-event,
 .fh5co-bg {
   background-size: cover;
-  background-position: top center;
+  background-position: bottom center;
   background-repeat: no-repeat;
   position: relative;
 }
@@ -306,6 +316,7 @@ h1, h2, h3, h4, h5, h6, figure {
   background-repeat: no-repeat;
   position: relative;
   width: 100%;
+  background-position: 50% !important;
 }
 .fh5co-cover .overlay {
   z-index: 0;
@@ -390,7 +401,7 @@ h1, h2, h3, h4, h5, h6, figure {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.7);
 }
 @media screen and (max-width: 768px) {
   #fh5co-counter,
@@ -537,7 +548,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .timeline > li > .timeline-badge {
   background-size: cover;
-  background-position: -15px center;
+  background-position: center;
   background-repeat: no-repeat;
   position: relative;
   color: #fff;
@@ -1046,7 +1057,9 @@ form label {
 }
 .heart i {
   font-size: 20px;
-  background: #fff;
+  background-image: url(../images/lilynho.png);
+  background-size: cover;
+  background-position: center;
   padding: 20px;
   color: #F14E95;
   -webkit-border-radius: 50%;
@@ -1058,6 +1071,10 @@ form label {
   .heart {
     display: none;
   }
+}
+
+.couple-half img {
+  transform: rotateY(180deg);
 }
 
 .couple-half {
@@ -1341,7 +1358,7 @@ form label {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.7);
 }
 #fh5co-started .fh5co-heading h2 {
   color: #fff;
