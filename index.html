@@ -419,6 +419,9 @@
                             </div>
                         </div>
                         <div class="row animate-box">
+                            
+                            <p id="not-guest" style="text-shadow: 1px 1px 3px #000" class="hide animate-box text-danger text-center"><strong>Ops! Não encontramos este nome na lista.</strong></p>
+
                             <div class="col-md-10 col-md-offset-1">
                                 <form class="form-inline">
                                     <div class="col-md-8 col-sm-8">
@@ -433,7 +436,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-4">
-                                        <button type="submit" class="btn btn-default btn-block" onclick="confirmar()">Continuar</button>
+                                        <button type="button" class="btn btn-default btn-block" onclick="confirmar()">Continuar</button>
                                     </div>
                                 </form>
                             </div>
@@ -468,30 +471,161 @@
             <!-- Main -->
             <script src="js/main.js"></script>
             <script>
-    var d = new Date('Dec 26, 2020');
+                var d = new Date('Dec 26, 2020');
 
-    // default example
-    simplyCountdown('.simply-countdown-one', {
-        year: d.getFullYear(),
-        month: d.getMonth() + 1,
-        day: d.getDate()
-    });
+                // default example
+                simplyCountdown('.simply-countdown-one', {
+                    year: d.getFullYear(),
+                    month: d.getMonth() + 1,
+                    day: d.getDate()
+                });
 
-    //jQuery example
-    $('#simply-countdown-losange').simplyCountdown({
-        year: d.getFullYear(),
-        month: d.getMonth() + 1,
-        day: d.getDate(),
-        enableUtc: false
-    });
+                //jQuery example
+                $('#simply-countdown-losange').simplyCountdown({
+                    year: d.getFullYear(),
+                    month: d.getMonth() + 1,
+                    day: d.getDate(),
+                    enableUtc: false
+                });
 
-	function confirmar() {
-		var nome = document.getElementById('name').value;
-		var url = "https://api.whatsapp.com/send?phone=+5592995210849&text=Eu, " + nome + ", estou confirmando presença no casamento !";
-		setTimeout(function(){
-			window.location.href = url;
-		}, 500);
-	}
+                // guests list script
+                function isGuest(nome) {
+                    var guests = [
+                    'Pietro Marinho',
+                    'Hector Antunes',
+                    'Yasmine Brandão',
+                    'Israel Brandão',
+                    'Neyla Oliveira',
+                    'Gustavo Oliveira',
+                    'Bryan Oliveira',
+                    'Katleen Pena',
+                    'Eduarda Reis',
+                    'Gabriela Nascimento',
+                    'Ronaldo Costa',
+                    'Anne Katherine',
+                    'Anne Caroline',
+                    'Tânia Oliveira',
+                    'Manuela Oliveira',
+                    'Karina Costa',
+                    'Vivaldo Papa',
+                    'Ruan Braga',
+                    'Victoria Katatlin',
+                    'Adriana Papa',
+                    'Elias Bart',
+                    'Celiana Assen',
+                    'Beatriz Assen',
+                    'Perseu Papa',
+                    'Ana cristina roque',
+                    'Sonia Papa',
+                    'Flavia Apolinario',
+                    'Ana Carolina Papa',
+                    'Gabriela Nascimento',
+                    'Vinicius Nascimento',
+                    'Maria Fernanda Rocha',
+                    'Audisonia',
+                    'Franço Garcia',
+                    'Rodrigo',
+                    'Keyla Solano',
+                    'Maycon Yan',
+                    'Priscila braga',
+                    'Deivid Tavares',
+                    'Maria Helena Braga',
+                    'Daniel da Costa Braga',
+                    'Yasmini Brandão',
+                    'Israel Brandão',
+                    'Dirley Dantas',
+                    'José Emmanuel Cabral',
+                    'Camila Beatriz',
+                    'Deny Menezes',
+                    'Gerlane Palheta',
+                    'Miguel Ferreira',
+                    'Gabirel Ferreira',
+                    'Maria Oliveira',
+                    'Mariana Oliveira',
+                    'fernanda',
+                    'Neyla Regina',
+                    'Bryan Oliveira',
+                    'Alex Melo',
+                    'Rodrigo Batista',
+                    'Vitor Trajano',
+                    'Alessandra Pires Pinheiro',
+                    'Amanda Oliveira',
+                    'Eduarda Reis',
+                    'Alessandra Smith',
+                    'Sthephane Brito',
+                    'Roude Tavares',
+                    'Fernanda Nascimento',
+                    'Jairo Henrique',
+                    'Pamela Fernanda',
+                    'Renaldo Iwry Brito',
+                    'Daniel Pozzetti',
+                    'Jessica Pozzetti',
+                    'Luiz Raphael Binda',
+                    'Beatriz Fatim',
+                    'Maria Santa',
+                    'Wagner',
+                    'Priscila Barreto',
+                    'Vitor Vinhote',
+                    'Thaiany Rodrigues',
+                    'Fabio Oliveira',
+                    'Katleen Pena',
+                    'Katleen Pena',
+                    'Maikon Sobrinho',
+                    'Marcelo Nascimento',
+                    'Deliane',
+                    'Fabio Ferreira',
+                    'Dani',
+                    'Sthefany Cruz',
+                    'Clarice Cruz',
+                    'Scarlethi Cruz',
+                    'Lury Jesus',
+                    'Eduardo Marques',
+                    'Lucia Chalub',
+                    'Domingos Jorge Chalub',
+                    'Rodrigo Zacarias',
+                    'Graça Colares',
+                    'Hedrio Colares',
+                    'Oyama Ituassu',
+                    'Marlene Ituassu',
+                    'Odenir Machado',
+                    'Cesar Ituassu',
+                    'Genny Ituassu',
+                    'Gabriel Gambarra',
+                    'Namorada Gambarra',
+                    'Karolaine Caldas',
+                    ];   
+                    var brokenNome = nome.toLowerCase().split(' ');
+                    for (let i = 0; i < guests.length; i++) {
+                        var brokenGuest =  guests[i].split(' ');
+                        for (let j = 0; j < brokenGuest.length; j++) {
+                            if(brokenNome.includes(brokenGuest[j].toLowerCase())) {
+                                return true;
+                            }
+                        }
+                    }
+
+                    return false;
+                }
+
+                function notifyNotGuest() {
+                    var notGuest = document.getElementById('not-guest');
+                    notGuest.classList.remove('hide');
+                        setTimeout(function(){
+                            notGuest.classList.add('hide');
+                        }, 5000);
+                }
+
+                function confirmar() {
+                    var nome = document.getElementById('name').value;
+                    if (isGuest(nome)) {
+                        var url = "https://api.whatsapp.com/send?phone=+5592995210849&text=Eu, " + nome + ", estou confirmando presença no casamento !";
+                        setTimeout(function(){
+                            window.location.href = url;
+                        }, 500);
+                    } else {
+                        notifyNotGuest();
+                    }
+                }
             </script>
         </body>
     </html>
