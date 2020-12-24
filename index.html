@@ -45,6 +45,21 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     </head>
     <body>
+
+        <div id="decreto-modal" onclick="fecha()">
+            <div class="modal-d">
+                <div class="icon-area">
+                    <div class="icon">
+                        <i class="icon-warning"></i>
+                    </div>
+                </div>
+                <div class="text-area">
+                    <p>Prezados convidados, <br> devido ao último decreto estaremos mudando a data do casamento para o dia <strong>21 de janeiro às 17h no mesmo local</strong>. Pedimos desculpas pelo transtorno, estamos à disposição para quaisquer dúvidas e esclarecimentos.</p>
+                    <button class="fecha">fechar</button>
+                </div>
+            </div>
+        </div>
+
         <div class="fh5co-loader"></div>
         <div id="page">
             <header
@@ -76,7 +91,7 @@
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
                             <h2>Olá!</h2>
-                            <h3>26 de Dezembro de 2020, Manaus/AM</h3>
+                            <h3>21 de janeiro de 2021, Manaus/AM</h3>
                             <p>Estamos convidando você para celebrar conosco</p>
                         </div>
                     </div>
@@ -88,7 +103,7 @@
                             <div class="desc-groom">
                                 <h3>Vivaldo Papa</h3>
                                 <p>
-                                    O casamento será 26 de dezembro às 16h na
+                                    O casamento será 21 de janeiro às 17h na
                                     <a href="https://www.google.com/maps/place/Ch%C3%A1cara+Monte+Rey/@-2.9625217,-60.1008444,17z/data=!4m5!3m4!1s0x926c3df421b35a11:0xdc386916479258b8!8m2!3d-2.9628646!4d-60.1001685" target="_blanc">Chácara Monte Rey</a>
                                     , localizada no Tarumã. Estamos muito felizes e gostaríamos da sua presença para celebrar nossa união.
                                 </div>
@@ -126,13 +141,13 @@
                                                 <h3>Cerimônia principal</h3>
                                                 <div class="event-col">
                                                     <i class="icon-clock"></i>
-                                                    <span>16 horas</span>
-                                                    <span>18 horas</span>
+                                                    <span>17 horas</span>
+                                                    <span>19 horas</span>
                                                 </div>
                                                 <div class="event-col">
                                                     <i class="icon-calendar"></i>
-                                                    <span>Sábado 26</span>
-                                                    <span>Dezembro, 2020</span>
+                                                    <span>Quinta 21</span>
+                                                    <span>Janeiro, 2021</span>
                                                 </div>
                                                 <p>Nossa cerimônia será no píer da chácara durante o pôr do sol.</p>
                                             </div>
@@ -147,8 +162,8 @@
                                                 </div>
                                                 <div class="event-col">
                                                     <i class="icon-calendar"></i>
-                                                    <span>Sábado 26</span>
-                                                    <span>Dezembro, 2020</span>
+                                                    <span>Quinta 21</span>
+                                                    <span>Janeiro, 2021</span>
                                                 </div>
                                                 <p>O jantar será servido no salão principal com área climatizada.</p>
                                             </div>
@@ -222,7 +237,7 @@
                                         </div>
                                     </li>
                                 </ul>
-                                <p>Temos bastante história para contar, e dia 26.12.2020 teremos mais um capítulo a escrever. Venha deixar esse momento gravado com a gente!</p>
+                                <p>Temos bastante história para contar, e dia 21.01.2021 teremos mais um capítulo a escrever. Venha deixar esse momento gravado com a gente!</p>
                             </div>
                         </div>
                     </div>
@@ -473,7 +488,7 @@
             <!-- Main -->
             <script src="js/main.js"></script>
             <script>
-                var d = new Date('Dec 26, 2020');
+                var d = new Date('Jan 21, 2021');
 
                 // default example
                 simplyCountdown('.simply-countdown-one', {
@@ -666,6 +681,11 @@
                     } else {
                         notifyNotGuest();
                     }
+                }
+
+                function fecha() {
+                    var modal = document.getElementById('decreto-modal');
+                    modal.classList.add('hide');
                 }
             </script>
         </body>
